@@ -141,7 +141,7 @@ $placeID = $_GET['placeID'];
           </div>
           <div class="place-details">
             <div class="place-title">
-              <h1 id="place-title">Muzium Perak</h1>
+              <h1 id="place-title">Tempurung Cave</h1>
               <div class="row">
                   <div>
                       <!-- Dynamic Star Rating -->
@@ -159,73 +159,60 @@ $placeID = $_GET['placeID'];
                       <span><?php echo $reviewCount . ' Reviews'; ?></span>
                   </div>
                   <div>
-                        <p class="place-location">Location: Taiping, Perak, Malaysia</p>
+                        <p class="place-location">Location: Gopeng, Perak, Malaysia</p>
                   </div>
               </div>
             </div>
 
               <div class="gallery" id="place-gallery">
-                <img src="./lib/muziumperak1.jpg" class="gallery-img-1">
-                <img src="./lib/muziumperak2.jpg">
-                <img src="./lib/muziumperak3.jpg">
-                <img src="./lib/muziumperak4.jpg">
-                <img src="./lib/muziumperak5.jpg">
+                <img src="./lib/tempurung1.jpg" class="gallery-img-1">
+                <img src="./lib/tempurung2.jpg">
+                <img src="./lib/tempurung3.jpg">
+                <img src="./lib/tempurung4.jpg">
+                <img src="./lib/tempurung5.jpg">
               </div>
               <div class="description">
-                  <h2>Muzium Perak, Explore The Rich Heritage</h2>
+                  <h2>Tempurung Cave, Malaysia's Majestic Limestone Cave and Historical Landmark</h2>
               </div>
               <hr class="line">
               <ul class="details-list">
-                  <li><i class="fa-solid fa-archway"></i>Architectural Fusion
-                      <span>Fusion of Moor, neo-classical, Victorian styles; distinctive cultural.</span>
+                  <li><i class="fa-solid fa-archway"></i>Distinctive Dome-like Chambers
+                      <span>Five domed chambers with unique stalactite formations, captivating visitors aesthetically.</span>
                   </li>
-                  <li><i class="fa-solid fa-l"></i>'L'-shaped Design and Tribute
-                      <span>A homage to Leonard Wray, adds symbolism and significance.</span>
+                  <li><i class="fa-solid fa-l"></i>Varied Environmental Conditions
+                      <span>Offer diverse environments for spelunkers and tourists.</span>
                   </li>
-                  <li><i class="fa-solid fa-trowel-bricks"></i>Diverse Construction Materials
-                      <span>Indian bricks, seashells, and granite, enrich museum's cultural history.</span>
+                  <li><i class="fa-solid fa-trowel-bricks"></i>Historical Significance
+                      <span>Communist hideout (1950-60) and tin mining site (1970s). Historical significance.</span>
                   </li>
-                  <li><i class="fa-solid fa-image"></i>Comprehensive Exhibition Galleries
-                      <span>Four galleries offer diverse themes, enriching Perak's history and culture.</span>
+                  <li><i class="fa-solid fa-image"></i>Adaptations for Tourism
+                      <span>Perak enhances Tempurung Cave with amenities, safety measures, and guided activities.</span>
                   </li>
               </ul>
 
               <hr class="line">
 
-              <p class="home-desc">The Perak Museum, located in Taiping and established in 1883, stands as Malaysia's first museum. 
-                Designed by an English architect, the building reflects a unique blend of Moorish, neo-classical, and Victorian architectural styles. 
-                Conceived by Sir Hugh Low, the Third British Resident of Perak, 
-                the museum aimed to serve as a research and collection center for the nation's history, 
-                culture, and natural heritage.
+              <p class="home-desc">Gua Tempurung, located in Gopeng, Perak, Malaysia, is a limestone cave known for its coconut shell-shaped formations. 
+                Stretching 1.9 km and believed to exist since 8000 BC, the cave features five large domes with unique stalagmites and stalactites. 
+                Each dome differs in temperature, water levels, limestone, and marble content. A popular tourist attraction, 
+                it is one of the largest limestone caves in Peninsular Malaysia.
               
               <br><br>
             
-              Constructed using imported bricks from India and local bricks, 
-              the building incorporates finely crushed seashell lime tar and special granite pieces for various elements. 
-              High-quality tropical woods such as cengal batu, meranti, and merbau were used for doors, floors, windows, and fixtures.
+              Situated 24 km south of Ipoh and a 15-minute drive from the renowned kayaking spot, Sungai Kampar, 
+              Gua Tempurung captivates visitors with its natural beauty. The cave, adorned with lights, stairs, walkways, and public facilities, 
+              is well-preserved by the Perak state government to enhance the visitor experience. Adventurous activities like river trekking are also organized.
 
               <br><br>
 
-              The museum's objectives include raising awareness of preserving national historical, cultural, and natural heritage, 
-              disseminating knowledge through exhibitions, fostering community relationships, serving as a reference center for heritage research, 
-              and becoming a renowned heritage tourism destination.
+              Beyond its natural wonders, Gua Tempurung holds historical significance as a former communist hideout in the 1950s-1960s and later served as a 
+              tin mining site from the 1970s. Easily accessible via the North-South Expressway or federal roads, the cave attracts tourists and explorers alike.
 
               <br><br>
 
-              With four galleries and outdoor exhibits, the museum showcases a diverse collection spanning ethnology, history, natural history, 
-              archaeology, and ethno-entomology. Current exhibitions include the 135th Anniversary Exhibition featuring artifacts like a 
-              replica of the Avalokitesvara statue and the "Elephant Skull" that attacked a train in 1894.
-
-              <br><br>
-
-              Galleries cover various themes, such as natural history, cultural artifacts, and exhibits on indigenous people and pottery. 
-              Outdoor displays include a range of heritage treasures like the TUDM's F-86 Avon Sabre aircraft, a Horse Carriage, 
-              Steam Power Generator Boiler, Long Jaafar Cannon, Sagor Boat, Antique "Rolls Royce" Carriage, and more.
-
-              <br><br>
-
-              The museum's vision is to be a renowned heritage tourism destination, 
-              inspiring the community to explore and share information about the country's cultural diversity, heritage, and fauna.
+              Additionally, a medical university, costing RM450 million and spanning 100 hectares, is set to be established near Gua Tempurung in Gopeng. 
+              Expected to be completed in 2009, the university is a collaborative effort between the Perak state government, Blair Education Services Sdn Bhd, 
+              and five Indian universities, offering courses in dentistry, pharmacy, nursing, information technology, biotechnology, nano-technology, geosciences, and management.
               </p>
 
               <hr class="line">
@@ -234,8 +221,8 @@ $placeID = $_GET['placeID'];
                 <h3>Location on map</h3>
                 <div id="map">
                 </div>
-                <b>Taiping, Perak, Malaysia</b>
-                <p>A historic town in Perak, Malaysia; former state capital before 1937.</p>
+                <b>Gopeng, Perak, Malaysia</b>
+                <p>Town in Perak, Malaysia, 20 km south of Ipoh capital.</p>
               </div>
 
               <hr class="line">
@@ -344,8 +331,8 @@ function initMapNoCard() {
       };
 
       var placeLatLng = {
-        lat: perakMarkers[0].lat,
-        lng: perakMarkers[0].lng,
+        lat: perakMarkers[3].lat,
+        lng: perakMarkers[3].lng,
       };
 
       // Map options

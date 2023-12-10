@@ -462,16 +462,16 @@ section{
 }
 
 /*-------------Place CSS----------*/
+
 .place-details{
-    padding: 0 12%;
+    margin: 150px 12% 50px 12%;
+    padding: 4% 4%;
+    background-color: #fff;
+    border-radius: 20px;
 }
 
 .place-location{
     margin-left: 15px;
-}
-
-.place-title{
-    margin-top: 150px;
 }
 
 .place-title h1{
@@ -489,6 +489,7 @@ section{
     display: grid;
     grid-gap: 10px;
     grid-template-areas: 'first first . .' 'first first . .';
+    align-items: stretch;
 }
 
 .gallery img{
@@ -549,6 +550,7 @@ section{
 .home-desc{
     max-width: 700px;
     margin-bottom: 50px;
+    font-size: 18px;
 }
 
 .flex{

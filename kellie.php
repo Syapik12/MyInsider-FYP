@@ -141,7 +141,7 @@ $placeID = $_GET['placeID'];
           </div>
           <div class="place-details">
             <div class="place-title">
-              <h1 id="place-title">Muzium Perak</h1>
+              <h1 id="place-title">Kellie's Castle</h1>
               <div class="row">
                   <div>
                       <!-- Dynamic Star Rating -->
@@ -159,73 +159,60 @@ $placeID = $_GET['placeID'];
                       <span><?php echo $reviewCount . ' Reviews'; ?></span>
                   </div>
                   <div>
-                        <p class="place-location">Location: Taiping, Perak, Malaysia</p>
+                        <p class="place-location">Location: Batu Gajah, Perak, Malaysia</p>
                   </div>
               </div>
             </div>
 
               <div class="gallery" id="place-gallery">
-                <img src="./lib/muziumperak1.jpg" class="gallery-img-1">
-                <img src="./lib/muziumperak2.jpg">
-                <img src="./lib/muziumperak3.jpg">
-                <img src="./lib/muziumperak4.jpg">
-                <img src="./lib/muziumperak5.jpg">
+                <img src="./lib/kellie1.jpg" class="gallery-img-1">
+                <img src="./lib/kellie2.jpg">
+                <img src="./lib/kellie3.jpg">
+                <img src="./lib/kellie4.jpg">
+                <img src="./lib/kellie5.jpg">
               </div>
               <div class="description">
-                  <h2>Muzium Perak, Explore The Rich Heritage</h2>
+                  <h2>Kellie's Castle, The Unfinished Splendor</h2>
               </div>
               <hr class="line">
               <ul class="details-list">
-                  <li><i class="fa-solid fa-archway"></i>Architectural Fusion
-                      <span>Fusion of Moor, neo-classical, Victorian styles; distinctive cultural.</span>
+                  <li><i class="fa-solid fa-archway"></i>Moghul Palace Design
+                      <span>Distinctive Moghul palace-inspired architecture in Southeast Asia, blending diverse influences.</span>
                   </li>
-                  <li><i class="fa-solid fa-l"></i>'L'-shaped Design and Tribute
-                      <span>A homage to Leonard Wray, adds symbolism and significance.</span>
+                  <li><i class="fa-solid fa-l"></i>Construction by Skilled Workers from Madras
+                      <span>Madras craftsmen brought an international touch to Kellie's Castle construction.</span>
                   </li>
-                  <li><i class="fa-solid fa-trowel-bricks"></i>Diverse Construction Materials
-                      <span>Indian bricks, seashells, and granite, enrich museum's cultural history.</span>
+                  <li><i class="fa-solid fa-trowel-bricks"></i>Underground Room and Secret Tunnel
+                      <span>Underground room, secret tunnel defy typical residential norms.</span>
                   </li>
-                  <li><i class="fa-solid fa-image"></i>Comprehensive Exhibition Galleries
-                      <span>Four galleries offer diverse themes, enriching Perak's history and culture.</span>
+                  <li><i class="fa-solid fa-image"></i>First Elevator in Malaya
+                      <span>First Malayan elevator, symbolizing Smith's modern estate vision.</span>
                   </li>
               </ul>
 
               <hr class="line">
 
-              <p class="home-desc">The Perak Museum, located in Taiping and established in 1883, stands as Malaysia's first museum. 
-                Designed by an English architect, the building reflects a unique blend of Moorish, neo-classical, and Victorian architectural styles. 
-                Conceived by Sir Hugh Low, the Third British Resident of Perak, 
-                the museum aimed to serve as a research and collection center for the nation's history, 
-                culture, and natural heritage.
+              <p class="home-desc">Kellie's Castle, also known as Kellas House, was constructed in 1905 by prominent Scottish rubber plantation owner William Kellie Smith. 
+                The three-story building was designed in the style of a Mughal palace in Agra, India, with craftsmen brought in specifically from Madras.
               
               <br><br>
             
-              Constructed using imported bricks from India and local bricks, 
-              the building incorporates finely crushed seashell lime tar and special granite pieces for various elements. 
-              High-quality tropical woods such as cengal batu, meranti, and merbau were used for doors, floors, windows, and fixtures.
+              Originally from the village of Kellas in Scotland, Smith arrived in Malaya (now Malaysia) in 1890. Partnering with landowner Alma Baker, 
+              he ventured into rubber cultivation and tin mining, amassing considerable wealth. Smith later returned to Scotland, 
+              married his Scottish sweetheart Agnes in 1903, and brought her to Malaya. The couple was blessed with a daughter named Helen in 1904, 
+              but it took several more years before Agnes gave birth to a son, Anthony, in 1915.
 
               <br><br>
 
-              The museum's objectives include raising awareness of preserving national historical, cultural, and natural heritage, 
-              disseminating knowledge through exhibitions, fostering community relationships, serving as a reference center for heritage research, 
-              and becoming a renowned heritage tourism destination.
+              In celebration of Anthony's birth, William Smith decided to expand his residence, planning a grand castle named Kellas House after his Scottish home. 
+              The castle featured 14 rooms, an underground chamber, and a secret tunnel, along with the first elevator in Malaya. 
+              The second floor was designated for a cement-floored tennis court.
 
               <br><br>
 
-              With four galleries and outdoor exhibits, the museum showcases a diverse collection spanning ethnology, history, natural history, 
-              archaeology, and ethno-entomology. Current exhibitions include the 135th Anniversary Exhibition featuring artifacts like a 
-              replica of the Avalokitesvara statue and the "Elephant Skull" that attacked a train in 1894.
-
-              <br><br>
-
-              Galleries cover various themes, such as natural history, cultural artifacts, and exhibits on indigenous people and pottery. 
-              Outdoor displays include a range of heritage treasures like the TUDM's F-86 Avon Sabre aircraft, a Horse Carriage, 
-              Steam Power Generator Boiler, Long Jaafar Cannon, Sagor Boat, Antique "Rolls Royce" Carriage, and more.
-
-              <br><br>
-
-              The museum's vision is to be a renowned heritage tourism destination, 
-              inspiring the community to explore and share information about the country's cultural diversity, heritage, and fauna.
+              The construction, highlighted as the most unique in the Far East, gained attention when reported in the London Financer newspaper on September 15, 1911. 
+              Unfortunately, Kellie Smith passed away in Lisbon, Portugal, on December 11, 1926, before the completion of the castle. 
+              The unfinished but intriguing structure has since become a popular attraction in Batu Gajah, drawing visitors to witness its distinctive charm.
               </p>
 
               <hr class="line">
@@ -234,8 +221,8 @@ $placeID = $_GET['placeID'];
                 <h3>Location on map</h3>
                 <div id="map">
                 </div>
-                <b>Taiping, Perak, Malaysia</b>
-                <p>A historic town in Perak, Malaysia; former state capital before 1937.</p>
+                <b>Batu Gajah, Perak, Malaysia</b>
+                <p>Town near Ipoh, home to Sultan Azlan.</p>
               </div>
 
               <hr class="line">
@@ -344,8 +331,8 @@ function initMapNoCard() {
       };
 
       var placeLatLng = {
-        lat: perakMarkers[0].lat,
-        lng: perakMarkers[0].lng,
+        lat: perakMarkers[2].lat,
+        lng: perakMarkers[2].lng,
       };
 
       // Map options

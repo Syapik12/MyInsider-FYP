@@ -141,7 +141,7 @@ $placeID = $_GET['placeID'];
           </div>
           <div class="place-details">
             <div class="place-title">
-              <h1 id="place-title">Muzium Perak</h1>
+              <h1 id="place-title">Taiping Lake Garden</h1>
               <div class="row">
                   <div>
                       <!-- Dynamic Star Rating -->
@@ -165,67 +165,67 @@ $placeID = $_GET['placeID'];
             </div>
 
               <div class="gallery" id="place-gallery">
-                <img src="./lib/muziumperak1.jpg" class="gallery-img-1">
-                <img src="./lib/muziumperak2.jpg">
-                <img src="./lib/muziumperak3.jpg">
-                <img src="./lib/muziumperak4.jpg">
-                <img src="./lib/muziumperak5.jpg">
+                <img src="./lib/lakegarden1.jpg" class="gallery-img-1">
+                <img src="./lib/lakegarden2.jpg">
+                <img src="./lib/lakegarden3.jpg">
+                <img src="./lib/lakegarden4.jpg">
+                <img src="./lib/lakegarden5.jpg">
               </div>
               <div class="description">
-                  <h2>Muzium Perak, Explore The Rich Heritage</h2>
+                  <h2>Taiping Lake Garden, Malaysia's Historic Oasis</h2>
               </div>
               <hr class="line">
               <ul class="details-list">
-                  <li><i class="fa-solid fa-archway"></i>Architectural Fusion
-                      <span>Fusion of Moor, neo-classical, Victorian styles; distinctive cultural.</span>
+                  <li><i class="fa-solid fa-archway"></i>Historical Significance and Colonial Influence
+                      <span>Historic public garden, colonial-era creation by Frowd Walker and Charles Reade.</span>
                   </li>
-                  <li><i class="fa-solid fa-l"></i>'L'-shaped Design and Tribute
-                      <span>A homage to Leonard Wray, adds symbolism and significance.</span>
+                  <li><i class="fa-solid fa-l"></i>Picturesque Landscape and Scenic Lakes
+                      <span>64 hectares, 10 lakes, scenic beauty since 1884.</span>
                   </li>
-                  <li><i class="fa-solid fa-trowel-bricks"></i>Diverse Construction Materials
-                      <span>Indian bricks, seashells, and granite, enrich museum's cultural history.</span>
+                  <li><i class="fa-solid fa-trowel-bricks"></i>Cultural and Floral Diversity
+                      <span>Diverse flora, vibrant environment, golden rain trees, cultural richness, Carnival boat.</span>
                   </li>
-                  <li><i class="fa-solid fa-image"></i>Comprehensive Exhibition Galleries
-                      <span>Four galleries offer diverse themes, enriching Perak's history and culture.</span>
+                  <li><i class="fa-solid fa-image"></i>Integrated Recreation and Wildlife
+                      <span>Evolved park with zoo, night safari; diverse, recreational </span>
                   </li>
               </ul>
 
               <hr class="line">
 
-              <p class="home-desc">The Perak Museum, located in Taiping and established in 1883, stands as Malaysia's first museum. 
-                Designed by an English architect, the building reflects a unique blend of Moorish, neo-classical, and Victorian architectural styles. 
-                Conceived by Sir Hugh Low, the Third British Resident of Perak, 
-                the museum aimed to serve as a research and collection center for the nation's history, 
-                culture, and natural heritage.
+              <p class="home-desc">The Taiping Lake Gardens, also known as Taman Tasik Taiping, holds the distinction of being Malaysia's first public garden 
+                established during British rule. Its inception in 1880 was conceived by Colonel Robert Sandilands Frowd Walker, 
+                and the development was undertaken by Charles Compton Reade in collaboration with Lady Swettenham. The 64-hectare site, 
+                originally a tin mining ground donated by Chung Keng Quee, transformed into a picturesque public space with grassy expanses, 
+                flowers, and trees, surrounded by scenic lakes and ponds.
               
               <br><br>
             
-              Constructed using imported bricks from India and local bricks, 
-              the building incorporates finely crushed seashell lime tar and special granite pieces for various elements. 
-              High-quality tropical woods such as cengal batu, meranti, and merbau were used for doors, floors, windows, and fixtures.
+              Notably well-maintained since its opening, the gardens feature ten lakes and ponds, creating a serene and beautiful environment. 
+              The golden rain trees along Residency Road add to the charm, creating a captivating landscape that has drawn admiration from travelers over the years.
 
               <br><br>
 
-              The museum's objectives include raising awareness of preserving national historical, cultural, and natural heritage, 
-              disseminating knowledge through exhibitions, fostering community relationships, serving as a reference center for heritage research, 
-              and becoming a renowned heritage tourism destination.
+              Surrounded by private and government residences, including the Old Residency and the Raja's House, the gardens have become a central attraction in Taiping. 
+              The streets nearby are shaded by rows of angsena trees, creating a breathtaking spectacle when in bloom. 
+              The beauty of the Taiping Lake Gardens has inspired numerous visitors to document their experiences, describing it as a sight unmatched in its early morning splendor.
 
               <br><br>
 
-              With four galleries and outdoor exhibits, the museum showcases a diverse collection spanning ethnology, history, natural history, 
-              archaeology, and ethno-entomology. Current exhibitions include the 135th Anniversary Exhibition featuring artifacts like a 
-              replica of the Avalokitesvara statue and the "Elephant Skull" that attacked a train in 1894.
+              The accessibility of Taiping includes air travel through Penang International Airport, road access via the North-South Expressway, 
+              and rail services by Keretapi Tanah Melayu, making it easily reachable for visitors. The town is also connected by express buses, 
+              providing convenient transportation to and from various destinations.
 
               <br><br>
 
-              Galleries cover various themes, such as natural history, cultural artifacts, and exhibits on indigenous people and pottery. 
-              Outdoor displays include a range of heritage treasures like the TUDM's F-86 Avon Sabre aircraft, a Horse Carriage, 
-              Steam Power Generator Boiler, Long Jaafar Cannon, Sagor Boat, Antique "Rolls Royce" Carriage, and more.
+              Aside from the gardens, Taiping offers additional attractions such as the renowned Maxwell Hill (Bukit Larut), 
+              an ideal destination for jungle-trekking and camping. Visitors can also explore the Tulip Garden at Bukit Larut, 
+              the first tulip farm in Malaysia. The Taiping Zoo and Night Safari, established as Malaysia's first zoo, 
+              provide entertainment for day-trippers with diverse offerings for both day and night visits.
 
               <br><br>
 
-              The museum's vision is to be a renowned heritage tourism destination, 
-              inspiring the community to explore and share information about the country's cultural diversity, heritage, and fauna.
+              In summary, the Taiping Lake Gardens stand as a historic and captivating public space, blending natural beauty with thoughtful design, 
+              making it a must-visit destination in Malaysia.
               </p>
 
               <hr class="line">
@@ -344,8 +344,8 @@ function initMapNoCard() {
       };
 
       var placeLatLng = {
-        lat: perakMarkers[0].lat,
-        lng: perakMarkers[0].lng,
+        lat: perakMarkers[4].lat,
+        lng: perakMarkers[4].lng,
       };
 
       // Map options
