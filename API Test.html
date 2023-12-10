@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map</title>
+</head>
+<body>
+    <h1>My Interactive Map</h1>
+
+    <!-- Create a div element to hold the map -->
+    <div id="map" style="height: 400px; width: 100%;"></div>
+
+    <!-- Include the Google Maps JavaScript API with your API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAywrcL-K6NeKHJivaPghOQIMt3PjVriYs&callback=initMap" async defer></script>
+
+    <!-- JavaScript code to initialize the map -->
+    <script>
+        function initMap() {
+            // Set the initial map coordinates and options
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 40.7128, lng: -74.0060 }, // Example coordinates (New York City)
+                zoom: 12, // Zoom level
+            });
+
+            // Add a marker to the map
+            const marker = new google.maps.Marker({
+                position: { lat: 40.7128, lng: -74.0060 }, // Example marker position
+                map: map,
+                title: "New York City" // Marker title
+            });
+
+            // You can add more markers, polygons, or other features here.
+        }
+    </script>
+</body>
+</html>
