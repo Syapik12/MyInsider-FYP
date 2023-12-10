@@ -107,7 +107,7 @@ session_start();
                     <img src="./lib/img1.jpg">
                     <span>
                         <h3>Jalan Kee Ann</h3>
-                        <p>Malacca</p>
+                        <p>Perak</p>
                     </span>
                 </div>
                 <div class="exclusive-item">
