@@ -320,6 +320,7 @@ $placeID = $_GET['placeID'];
                             <input type="radio" name="rating" value="5" id="rating5"><label for="rating5"><i class="fas fa-star"></i></label>
                         </div>
                         <textarea name="comment" required></textarea>
+                        <input type="hidden" name="placeID" value="<?php echo htmlspecialchars($placeID); ?>">
                         <button type="submit" class="comment-submit">Comment</button>
                     </form>
                 </div>

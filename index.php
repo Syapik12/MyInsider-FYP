@@ -1,5 +1,18 @@
 <?php
 session_start();
+include('dbconn.php');
+
+        $sql = "SELECT placeID, rating FROM review";
+        $result = $conn->query($sql);
+
+        $ratings = array();
+
+        // Fetch ratings from the result set
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $ratings[] = $row;
+            }
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,15 +20,21 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyInsider Landing Page</title>
-    <!-- Link to Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="style.css" rel="stylesheet"> 
+    <script>
+    // Output the PHP $ratings array as a JavaScript variable
+    var ratings = <?php echo json_encode($ratings); ?>;
+    </script>
     <style>
         /* Additional CSS for custom styling */
         body {
             margin: 0;
             padding: 0;
+        }
+
+        .container{
+            padding: 0 7%;
         }
 
 
@@ -101,7 +120,7 @@ session_start();
 
     <!-- New Section -->
         <div class="container">
-            <h2 class="sub-title">Exclusive</h2>
+            <h2 class="sub-title">Trending Places</h2>
             <div class="exclusives">
                 <div class="exclusive-item">
                     <img src="./lib/img1.jpg">
@@ -110,63 +129,48 @@ session_start();
                         <p>Malacca</p>
                     </span>
                 </div>
-                <div class="exclusive-item">
-                    <img src="./lib/img2.jpg">
-                    <span>
-                        <h3>Kilim Geoforest Park</h3>
-                        <p>Kedah</p>
-                    </span>
+            </div>
+            <div class="cta">
+            <h3>Embark on Your Next Adventure</h3>
+            <p>Your Journey Starts Here!</p>
+            </div>
+
+            <h2 class="sub-title">Malaysia's Stories</h2>
+            <div class="stories">
+                <div>
+                    <img src="./lib/story1.jpg">
+                    <p>Historic square where independence was proclaimed, uniting Malaysia.</p>
                 </div>
-                <div class="exclusive-item">
-                    <img src="./lib/img3.jpg">
-                    <span>
-                        <h3>Cameron Highlands</h3>
-                        <p>Pahang</p>
-                    </span>
+                <div>
+                    <img src="./lib/story2.jpg">
+                    <p>Mist-kissed hills, tea plantations. Cameron charm, nature's sanctuary in Malaysia.</p>
                 </div>
-                <div class="exclusive-item">
-                    <img src="./lib/img4.jpg">
-                    <span>
-                        <h3>George Town</h3>
-                        <p>Penang Island</p>
-                    </span>
+                <div>
+                    <img src="./lib/story3.jpg">
+                    <p>Sandy shores whispered tales, where Port Dickson's secrets unfold gracefully</p>
                 </div>
-                <div class="exclusive-item">
-                    <img src="./lib/img4.jpg">
-                    <span>
-                        <h3>George Town</h3>
-                        <p>Penang Island</p>
-                    </span>
-                </div>
-                <div class="exclusive-item">
-                    <img src="./lib/img4.jpg">
-                    <span>
-                        <h3>George Town</h3>
-                        <p>Penang Island</p>
-                    </span>
-                </div>
-                <div class="exclusive-item">
-                    <img src="./lib/img4.jpg">
-                    <span>
-                        <h3>George Town</h3>
-                        <p>Penang Island</p>
-                    </span>
-                </div>
-                <div class="exclusive-item">
-                    <img src="./lib/img4.jpg">
-                    <span>
-                        <h3>George Town</h3>
-                        <p>Penang Island</p>
-                    </span>
-                </div>
+            </div>
+
+            <div class="about-msg">
+                <h2>About MyInsider</h2>
+                <p>jkdnwajdnjwakdnjkasdbkjwalbkjagdfiluawgfjklasgfiuwlgajkdsajkl</p>
+            </div>
+
+            <div class="footer">
+                <a href="facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="facebook.com"><i class="fab fa-youtube"></i></a>
+                <a href="facebook.com"><i class="fab fa-twitter"></i></a>
+                <a href="facebook.com"><i class="fab fa-linkedin-in"></i></a>
+                <a href="facebook.com"><i class="fab fa-instagram"></i></a>
+                <hr>
+                <p>Copyright © 2023, MyInsider</p>
             </div>
         </div>
 
-    <!-- Link to Bootstrap JS and jQuery (you may need these for Bootstrap functionality) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAywrcL-K6NeKHJivaPghOQIMt3PjVriYs&callback=initMap" async defer></script>
+        
+
+    
+    <script src="script.js"></script>
     <!-- JavaScript code to initialize the map -->
     <script>
 
@@ -242,6 +246,46 @@ session_start();
             window.open(geoUri, '_system');
         }
 
+        // Add a ratings property to each perakMarkers object
+        perakMarkers.forEach(function (marker) {
+        var ratingData = ratings.find(function (rating) {
+            return rating.placeID === marker.placeID;
+        });
+
+        marker.rating = ratingData ? ratingData.rating : 0;
+        });
+
+        // Sort perakMarkers based on ratings in descending order
+        perakMarkers.sort(function (a, b) {
+        return b.rating - a.rating;
+        });
+
+        // Update the HTML to display the exclusive items
+        var exclusiveItemsContainer = document.querySelector('.exclusives');
+        exclusiveItemsContainer.innerHTML = '';
+
+        for (var i = 0; i < Math.min(5, perakMarkers.length); i++) {
+        var exclusiveItem = document.createElement('div');
+        exclusiveItem.className = 'exclusive-item';
+
+        var img = document.createElement('img');
+        img.src = perakMarkers[i].images[0];
+
+        var span = document.createElement('span');
+        var h3 = document.createElement('h3');
+        h3.textContent = perakMarkers[i].name;
+
+        var p = document.createElement('p');
+        p.textContent = perakMarkers[i].city;
+
+        span.appendChild(h3);
+        span.appendChild(p);
+
+        exclusiveItem.appendChild(img);
+        exclusiveItem.appendChild(span);
+
+        exclusiveItemsContainer.appendChild(exclusiveItem);
+        }
     </script>
 </body>
 </html>

@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Validate and sanitize input data
     $rating = isset($_POST['rating']) ? intval($_POST['rating']) : 0;
     $comment = isset($_POST['comment']) ? htmlspecialchars($_POST['comment']) : '';
+    $placeID = isset($_POST['placeID']) ? htmlspecialchars($_POST['placeID']) : 0;
     
     // Perform additional validation if needed
 
@@ -21,11 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Your database connection logic here
 
-    // Insert the comment into the database
-    // Replace the following code with your actual SQL query
-    $sql = "INSERT INTO review (UserID, Rating, Comment, Review_Date) VALUES (?, ?, ?, NOW())";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$userID, $rating, $comment]);
+     // Insert the comment into the database along with placeID
+     $sql = "INSERT INTO review (UserID, Rating, Comment, Review_Date, PlaceID) VALUES (?, ?, ?, NOW(), ?)";
+     $stmt = $conn->prepare($sql);
+     $stmt->execute([$userID, $rating, $comment, $placeID]);
 
     // Close the database connection if needed
 
