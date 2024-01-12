@@ -330,16 +330,16 @@ function showNearbyMarkers() {
   // Check if geolocation is available
   if (navigator.geolocation) {
     var customThresholdInput = document.getElementById('custom-threshold');
-    var customThresholdValue = parseInt(customThresholdInput.value);
+    var customThresholdValue = parseFloat(customThresholdInput.value); // Parse as float for kilometers
 
     // Check if a valid custom threshold value is provided
-    if (isNaN(customThresholdValue)) {
-      alert("Please enter a valid numeric threshold value.");
+    if (isNaN(customThresholdValue) || customThresholdValue <= 0) {
+      alert("Please enter a valid positive numeric threshold value in kilometers.");
       return;
     }
 
-    // Use the custom threshold value for nearby searches
-    var threshold = customThresholdValue;
+    // Convert the threshold value from kilometers to meters
+    var threshold = customThresholdValue * 1000;
 
     navigator.geolocation.getCurrentPosition(function (position) {
       var userLatLng = {

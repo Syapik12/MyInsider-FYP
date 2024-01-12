@@ -285,7 +285,7 @@ session_start();
                 <div class="column">
                     <button id="nearby-button">Nearby</button>
                     <button id="show-all-button" style="display: none;">Show All</button>
-                    <input type="text" id="custom-threshold" placeholder="Input range here (10000m = 10km)" autocomplete="off">
+                    <input type="text" id="custom-threshold" placeholder="Input range (KM)" autocomplete="off" style="border: 2px solid silver;">
                 </div>
             </div>
             <div class="result-box">
