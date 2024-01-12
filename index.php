@@ -88,9 +88,9 @@ include('dbconn.php');
 
     <!-- Content Section -->
     <section class="home">
-        <video class="video-slide active" src="./lib/bg1.mp4" autoplay muted loop></video>
-        <video class="video-slide" src="./lib/bg2.mp4" autoplay muted loop></video>
-        <video class="video-slide" src="./lib/bg3.mp4" autoplay muted loop></video>
+        <video class="video-slide active" src="https://firebasestorage.googleapis.com/v0/b/charismatic-fx-399402.appspot.com/o/bg1.mp4?alt=media&token=d30c6b12-fd8f-4c96-93e2-35bdaf64a1d2" autoplay muted loop></video>
+        <video class="video-slide" src="https://firebasestorage.googleapis.com/v0/b/charismatic-fx-399402.appspot.com/o/bg2.mp4?alt=media&token=93819ce2-d8d3-453f-ac78-7a3586f63868" autoplay muted loop></video>
+        <video class="video-slide" src="https://firebasestorage.googleapis.com/v0/b/charismatic-fx-399402.appspot.com/o/bg3.mp4?alt=media&token=d3f91802-993a-4f84-814f-79d12d1fa57a" autoplay muted loop></video>
         <div class="content active">
             <h1>Malaysia:<br><span>Truly Asia's Hidden Gem!</span></h1>
             <p>Experience the enchantment of Malaysia, a country that perfectly encapsulates the essence of Asia. Nestled in the heart of Southeast Asia, Malaysia is a land of breathtaking landscapes, rich cultural diversity, and unforgettable adventures waiting to be discovered.</p>

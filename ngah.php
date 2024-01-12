@@ -135,7 +135,7 @@ $placeID = $_GET['placeID'];
         <div class="container">
           <div class="video-container">
               <video autoplay muted loop>
-                  <source src="./lib/bg3.mp4" type="video/mp4">
+                  <source src="https://firebasestorage.googleapis.com/v0/b/charismatic-fx-399402.appspot.com/o/bg3.mp4?alt=media&token=d3f91802-993a-4f84-814f-79d12d1fa57a" type="video/mp4">
                   Your browser does not support the video tag.
               </video>
           </div>
