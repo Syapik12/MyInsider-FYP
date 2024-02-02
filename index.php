@@ -153,7 +153,14 @@ include('dbconn.php');
 
             <div class="about-msg">
                 <h2>About MyInsider</h2>
-                <p>jkdnwajdnjwakdnjkasdbkjwalbkjagdfiluawgfjklasgfiuwlgajkdsajkl</p>
+                <p>
+                Welcome to MyInsider, your gateway to unlocking the vibrant beauty, rich culture, 
+                and captivating history of Malaysia. Founded with a passion for enhancing travel experiences, 
+                we aim to revolutionize the way you explore this diverse and enchanting country.
+                Our mission is to empower travelers from around the world to discover the wonders of Malaysia effortlessly. 
+                We believe that every journey should be seamless, informative, and personalized, 
+                ensuring that you make the most of your time in this beautiful nation.
+                </p>
             </div>
 
             <div class="footer">

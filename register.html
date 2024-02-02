@@ -140,6 +140,10 @@
             height: 100%;
             object-fit: cover; /* Ensure the video covers the entire container */
         }
+
+        .input-box input[type="file"] {
+            border: none;
+        }
     </style>
     <body>
         <!-- Navigation Bar -->
@@ -162,8 +166,11 @@
             </video>
         </div>
         <div class="wrapper">
-            <form action="register.php" method="POST">
+            <form action="register.php" method="POST" enctype="multipart/form-data">
                 <h1>Register</h1>
+                <div class="input-box">
+                    <input type="file" name="ProfileImage" accept="image/" required>
+                </div>
                 <div class="input-box">
                     <input type="text" name="Username" placeholder="Username" required>
                     <i class="fa-regular fa-user"></i>

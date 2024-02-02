@@ -260,7 +260,6 @@ session_start();
             <div class="navigation-items">
                 <a href="SearchMap.php">Explore</a>
                 <?php
-                
 
                 if (isset($_SESSION['UserID'])) {
                     echo '<a href="signout.php">Sign Out</a>';
@@ -303,6 +302,15 @@ session_start();
         
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7pdXIZgff_5nHTauJwJP4GJ1CL0NHGdU&libraries=geometry&callback=initMap">
+
+    //JavaScript for responsive website
+    const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        });
     </script>
     <script src="script.js"></script>
     

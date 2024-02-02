@@ -637,6 +637,7 @@ section{
     height: 24px;
     margin-right: 10px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .comment-box textarea{

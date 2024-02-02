@@ -136,17 +136,15 @@ function initMap() {
             elementType: "labels",
             stylers: [{ visibility: "off" }],
           },
-          // Add more style rules to customize the map as needed
         ],
       };
 
       // Create the map
       map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-      // Define a custom icon for the user's location marker
       var userIcon = {
-        url: './lib/user.png', // Provide the path to your custom icon
-        scaledSize: new google.maps.Size(40, 40), // Adjust the icon size as needed
+        url: './lib/user.png',
+        scaledSize: new google.maps.Size(40, 40),
       };
 
       // Add a marker for the user's location
@@ -157,7 +155,6 @@ function initMap() {
         icon: userIcon,
       });
 
-      // Create an InfoWindow with the "You are Here" text
       var infoWindow = new google.maps.InfoWindow({
         content: 'You are Here'
       });
@@ -179,13 +176,11 @@ function initMap() {
 
 function addCardToBottomBar(container, markerData) {
   if (userLatLng) {
-    // Calculate the distance using the Haversine formula
     var distance = google.maps.geometry.spherical.computeDistanceBetween(
       new google.maps.LatLng(userLatLng.lat, userLatLng.lng),
       new google.maps.LatLng(markerData.lat, markerData.lng)
     );
 
-    // Convert distance to kilometers (rounded to two decimal places)
     var distanceInKilometers = (distance / 1000).toFixed(2);
 
     var card = document.createElement('div');
@@ -211,30 +206,23 @@ function addCardToBottomBar(container, markerData) {
 // Keep track of the currently open info window
 var currentInfoWindow = null;
 
-// Function to open the info window and center the map on a location with a smooth transition
 function openInfoWindowAndCenterMap(markerData) {
 
-  // Create an info window for this marker
   var infoWindow = new google.maps.InfoWindow();
 
-  // Create a div element for the content
   var contentDiv = document.createElement('div');
   contentDiv.className = 'infoBox';
 
-  // Create an "imgBx" div for the image
   var imgBxDiv = document.createElement('div');
   imgBxDiv.className = 'imgBx';
 
-  // Create an image element for the first image
   var imageElement = document.createElement('img');
   imageElement.src = markerData.images[0];
   imageElement.alt = markerData.name;
 
-  // Create a "content" div for the name, description, and read more button
   var contentContentDiv = document.createElement('div');
   contentContentDiv.className = 'content';
 
-  // Create left and right navigation buttons
   var leftArrow = document.createElement('button');
   leftArrow.className = 'arrow left-arrow';
   leftArrow.innerText = '<';
@@ -243,10 +231,8 @@ function openInfoWindowAndCenterMap(markerData) {
   rightArrow.className = 'arrow right-arrow';
   rightArrow.innerText = '>';
 
-  // Initialize the image index
   var currentIndex = 0;
 
-  // Update the InfoWindow content with the current image
   function updateInfoWindowContent() {
     imgBxDiv.innerHTML = ''; // Clear existing content
     imgBxDiv.appendChild(imageElement);
@@ -258,13 +244,11 @@ function openInfoWindowAndCenterMap(markerData) {
     <a href="${markerData.detailPageUrl}?placeID=${markerData.placeID}" class="read-more-button">Read More</a>
     `;
 
-    // Handle left arrow click
     leftArrow.addEventListener('click', function () {
       currentIndex = (currentIndex - 1 + markerData.images.length) % markerData.images.length;
       imageElement.src = markerData.images[currentIndex];
     });
 
-    // Handle right arrow click
     rightArrow.addEventListener('click', function () {
       currentIndex = (currentIndex + 1) % markerData.images.length;
       imageElement.src = markerData.images[currentIndex];
@@ -278,26 +262,20 @@ function openInfoWindowAndCenterMap(markerData) {
     infoWindow.setContent(contentDiv);
   }
 
-  // Update the InfoWindow content and open it
   updateInfoWindowContent();
   infoWindow.open(map, markerData.marker);
 
-  // Get the marker's position
   var markerPosition = markerData.marker.getPosition();
 
-  // Set an appropriate zoom level (you can adjust this as needed)
   var targetZoom = 12;
 
-  // Smoothly pan and zoom to the marker's position
   map.panTo(markerPosition);
   map.setZoom(targetZoom);
 
-  // Update the currently open info window
   currentInfoWindow = infoWindow;
 }
 
 
-// Function to add a marker with an info window
 function addMarkerWithInfoWindow(map, markerData) {
   if (markerData.images && markerData.images.length > 0) {
     var placeIcon = {
@@ -312,11 +290,9 @@ function addMarkerWithInfoWindow(map, markerData) {
       icon: placeIcon,
     });
 
-    // Attach the marker to the markerData object for later use
     markerData.marker = marker;
     markerData.placeID = markerData.placeID;
 
-    // Add a click event listener to open the info window and center the map
     marker.addListener('click', function () {
       openInfoWindowAndCenterMap(markerData);
     });
@@ -325,20 +301,16 @@ function addMarkerWithInfoWindow(map, markerData) {
   }
 }
 
-// Function to show nearby markers
 function showNearbyMarkers() {
-  // Check if geolocation is available
   if (navigator.geolocation) {
     var customThresholdInput = document.getElementById('custom-threshold');
     var customThresholdValue = parseFloat(customThresholdInput.value); // Parse as float for kilometers
 
-    // Check if a valid custom threshold value is provided
     if (isNaN(customThresholdValue) || customThresholdValue <= 0) {
       alert("Please enter a valid positive numeric threshold value in kilometers.");
       return;
     }
 
-    // Convert the threshold value from kilometers to meters
     var threshold = customThresholdValue * 1000;
 
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -347,10 +319,8 @@ function showNearbyMarkers() {
         lng: position.coords.longitude
       };
 
-      // Clear the existing map
       map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-      // Create a user marker
       var userIcon = {
         url: './lib/user.png',
         scaledSize: new google.maps.Size(40, 40),
@@ -362,11 +332,9 @@ function showNearbyMarkers() {
         icon: userIcon,
       });
 
-      // Clear the existing cards in the bottom bar
       var cardContainer = document.getElementById('bottom-bar');
       cardContainer.innerHTML = '';
 
-      // Loop through the custom markers and check if they are nearby
       for (var i = 0; i < perakMarkers.length; i++) {
         var markerData = perakMarkers[i]; // Retrieve the marker data
         var markerLatLng = {
@@ -374,48 +342,37 @@ function showNearbyMarkers() {
           lng: markerData.lng
         };
 
-        // Calculate the distance between the user and the marker
         var distance = google.maps.geometry.spherical.computeDistanceBetween(
           new google.maps.LatLng(userLatLng.lat, userLatLng.lng),
           new google.maps.LatLng(markerLatLng.lat, markerLatLng.lng)
         );
 
-        // Check if the distance is within the custom threshold
         if (distance <= threshold) {
           addMarkerWithInfoWindow(map, markerData);
           addCardToBottomBar(cardContainer, markerData, distance);
         }
       }
-      // User marker should be visible after nearby markers are added
       userMarker.setMap(map);
 
-      // Handle UI changes
       handleUINearbyButtonClick();
     });
   }
 }
 
-// Function to handle UI changes after clicking the "Nearby" button
 function handleUINearbyButtonClick() {
-  // Hide the nearby button and threshold input
   var nearbyButton = document.getElementById('nearby-button');
   var customThresholdInput = document.getElementById('custom-threshold');
   nearbyButton.style.display = 'none';
   customThresholdInput.style.display = 'none';
 
-  // Show the "Show All" button
   var showAllButton = document.getElementById('show-all-button');
   showAllButton.style.display = 'inline-block'; // Use "inline-block" to make it visible
 
-  // Add a click event listener to the "Show All" button
   showAllButton.addEventListener('click', function () {
-    // Show the input field after clicking "Show All"
     customThresholdInput.style.display = 'inline-block'; // Use "inline-block" to make it visible
 
-    // Bring back the nearby button
     nearbyButton.style.display = 'inline-block'; // Use "inline-block" to make it visible
 
-    // Hide the "Show All" button
     showAllButton.style.display = 'none';
   });
 }
@@ -441,22 +398,17 @@ searchInput.addEventListener('input', function () {
 });
 
 function filterPerakMarkers(userInput) {
-  // Clear the previous suggestions
   var resultBox = document.querySelector('.result-box');
   var suggestions = document.createElement('ul');
   suggestions.innerHTML = '';
 
-  // Check if the search input is empty
   if (userInput.trim() === '') {
-    // Hide the result box if the input is empty
     resultBox.style.display = 'none';
     isSuggestionsOpen = false;
   } else {
-    // Show the result box if there is user input
     resultBox.style.display = 'block';
     isSuggestionsOpen = true;
 
-    // Filter the PerakMarkers based on user input
     var filteredMarkers = perakMarkers.filter(function (marker) {
       return (
         marker.name.toLowerCase().includes(userInput) ||
@@ -464,30 +416,25 @@ function filterPerakMarkers(userInput) {
       );
     });
 
-    // Display the suggestions in the result box
     filteredMarkers.forEach(function (marker) {
       var suggestionItem = document.createElement('li');
       suggestionItem.textContent = marker.name;
       suggestions.appendChild(suggestionItem);
 
-      // Add a click event listener to the suggestion item to populate the search input
       suggestionItem.addEventListener('click', function () {
         searchInput.value = marker.name;
         suggestions.innerHTML = ''; // Clear the suggestions
 
-        // Hide the result box after a suggestion is clicked
         resultBox.style.display = 'none';
         isSuggestionsOpen = false;
       });
     });
   }
 
-  // Clear the result box if there are no matching suggestions
   if (suggestions.children.length === 0) {
     resultBox.style.display = 'none';
     isSuggestionsOpen = false;
   } else {
-    // Append the suggestions to the result box
     resultBox.innerHTML = '';
     resultBox.appendChild(suggestions);
   }
@@ -525,7 +472,7 @@ function searchAndOpenMarker(userInput) {
   if (filteredMarker) {
     openInfoWindowAndCenterMap(filteredMarker);
   } else {
-    alert("Marker not found."); // You can handle what to do when the marker is not found
+    alert("Marker not found."); 
   }
 }
 
@@ -537,18 +484,14 @@ searchButton.addEventListener('click', function () {
   searchAndDisplayResults(userInput);
 });
 
-// Function to search for markers and display matching results
 function searchAndDisplayResults(userInput) {
-  // Clear the existing map and bottom bar
   var cardContainer = document.getElementById('bottom-bar');
   cardContainer.innerHTML = '';
 
-  // Close the previous info window if it's open
   if (currentInfoWindow) {
     currentInfoWindow.close();
   }
 
-  // Add the user's location marker
   var userIcon = {
     url: './lib/user.png',
     scaledSize: new google.maps.Size(40, 40),
@@ -560,14 +503,11 @@ function searchAndDisplayResults(userInput) {
     icon: userIcon,
   });
 
-  // Initialize variables for centering the map on the searched marker
   var centerLatLng = null;
 
-  // Initialize a counter for matching markers
   var matchingMarkerCount = 0;
   var matchingMarkerData = null;
 
-  // Iterate through the Perak markers and check for partial title or city matches
   for (var i = 0; i < perakMarkers.length; i++) {
     var markerData = perakMarkers[i];
 
@@ -575,31 +515,23 @@ function searchAndDisplayResults(userInput) {
       markerData.name.toLowerCase().includes(userInput) ||
       markerData.city.toLowerCase().includes(userInput)
     ) {
-      // Increment the counter
       matchingMarkerCount++;
 
-      // Save the matching marker data
       matchingMarkerData = markerData;
 
-      // Add marker to the map
       addMarkerWithInfoWindow(map, markerData);
-      // Add card to the bottom bar
       addCardToBottomBar(cardContainer, markerData);
 
-      // Set the centerLatLng to the position of the matching marker
       centerLatLng = new google.maps.LatLng(markerData.lat, markerData.lng);
     }
   }
 
-  // If only one matching marker was found, center the map on its position and open its info window
   if (matchingMarkerCount === 1) {
     openInfoWindowAndCenterMap(matchingMarkerData);
   } else {
-    // If multiple or no matching markers were found, set the map center to user's location
     map.setCenter(userLatLng);
   }
 
-  // Update the currently open info window if any
   if (currentInfoWindow) {
     openInfoWindowAndCenterMap(currentInfoWindow.markerData);
   }
@@ -608,12 +540,9 @@ function searchAndDisplayResults(userInput) {
 
 
 
-// Function to show all markers
 function showAllPlaces() {
-  // Clear the existing map
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-  // Create a user marker
   var userIcon = {
     url: './lib/user.png',
     scaledSize: new google.maps.Size(40, 40),
@@ -625,17 +554,14 @@ function showAllPlaces() {
     icon: userIcon,
   });
 
-  // Clear the existing cards in the bottom bar
   var cardContainer = document.getElementById('bottom-bar');
   cardContainer.innerHTML = '';
 
-  // Loop through all the custom markers and add them to the map
   for (var i = 0; i < perakMarkers.length; i++) {
     addMarkerWithInfoWindow(map, perakMarkers[i]);
     addCardToBottomBar(cardContainer, perakMarkers[i]);
   }
 
-  // User marker should be visible after all markers are added
   userMarker.setMap(map);
 }
 
