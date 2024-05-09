@@ -103,7 +103,107 @@ var perakMarkers = [
   detailPageUrl: 'ngah.php',
   city: 'Matang'
 },
-// Add more markers with name, description, and image as needed
+{
+  lat: 4.501110776167158, 
+  lng: 100.78025342733193,
+  name: 'Beruas Museum',
+  placeID: "11",
+  description: 'Collects artifacts from the lost kingdom of Ganga Negara and Beruas.',
+  images: ['./lib/beruas1.jpg', './lib/beruas2.jpg', './lib/beruas3.jpg'],
+  detailPageUrl: 'beruas.php',
+  city: 'Beruas'
+},
+{
+  lat: 4.604607013997345, 
+  lng: 101.07798418303425,
+  name: 'Darul Ridzuan Museum',
+  placeID: "12",
+  description: 'Became a museum in 1992 after serving as the administrative center for the Department of Works.',
+  images: ['./lib/darul1.jpg', './lib/darul2.jpg', './lib/darul3.jpg'],
+  detailPageUrl: 'darul.php',
+  city: 'Ipoh'
+},
+{
+  lat: 4.597555863211378, 
+  lng: 101.11978743548211,
+  name: 'Geological Museum',
+  placeID: "13",
+  description: 'Founded in 1957, underwent renovations and expansions under the Ninth Malaysia Plan for increased exhibition space and collections.',
+  images: ['./lib/geological1.jpg', './lib/geological2.jpg', './lib/geological3.jpg'],
+  detailPageUrl: 'geological.php',
+  city: 'Ipoh'
+},
+{
+  lat: 4.602315894830714, 
+  lng: 101.08044796493414,
+  name: 'Palong Tin Museum',
+  placeID: "14",
+  description: 'A collaborative tourism project by Kinta Riverfront Hotel, Ipoh City Council, and Perak Water and Drainage Department, enhancing the Kinta River side landscape.',
+  images: ['./lib/Palong1.jpg', './lib/Palong2.jpg', './lib/Palong3.jpg'],
+  detailPageUrl: 'Palong.php',
+  city: 'Ipoh'
+},
+{
+  lat: 4.760231631759715, 
+  lng: 100.95573296493383,
+  name: 'Istana Kenangan',
+  placeID: "15",
+  description: 'Built in 1926 for Sultan Iskandar Shah, now Perak Royal Museum, served as official residence (1931-1933) and later used for royal receptions.',
+  images: ['./lib/kenangan1.jpg', './lib/kenangan2.jpg', './lib/kenangan3.jpg'],
+  detailPageUrl: 'kenangan.php',
+  city: 'Kuala Kangsar'
+},
+{
+  lat: 4.1962335370561705, 
+  lng: 100.70028091986305,
+  name: 'Sitiawan Settlement Museum',
+  placeID: "16",
+  description: 'Built in 1935 as a residence for Pioneer Methodist Church pastors, the Sitiawan Settlement Museum in Malaysia was converted into a museum on September 7, 2003.',
+  images: ['./lib/sitiawan1.jpg', './lib/sitiawan2.jpg', './lib/sitiawan3.jpg'],
+  detailPageUrl: 'sitiawan.php',
+  city: 'Sitiawan'
+},
+{
+  lat: 4.459130399999544, 
+  lng: 101.1928987354846,
+  name: 'Gaharu Tea Valley',
+  placeID: "17",
+  description: 'Established in 2012, is an agro-tourism tea plantation in Gopeng, Perak, Malaysia.',
+  images: ['./lib/Gaharu1.jpg', './lib/Gaharu2.jpg', './lib/Gaharu3.jpg'],
+  detailPageUrl: 'Gaharu.php',
+  city: 'Gopeng'
+},
+{
+  lat: 4.862298258835708, 
+  lng: 100.79300031104988,
+  name: 'Bukit Larut (Maxwell Hill)',
+  placeID: "18",
+  description: 'Established in 1884, undergoes renovation post-public opposition to tourism development, with restricted access due to a landslide, hosting the annual North Face Malaysia Mountain Trail Festival.',
+  images: ['./lib/larut1.jpg', './lib/larut2.jpg', './lib/larut3.jpg'],
+  detailPageUrl: 'larut.php',
+  city: 'Taiping'
+},
+{
+  lat: 4.230169593723822, 
+  lng: 100.54494878038328,
+  name: 'Teluk Nipah Beach',
+  placeID: "19",
+  description: 'Pristine shores, vibrant activities, and exotic wildlife on Pangkor Island, with nearby islands offering coral-rich diving sites.',
+  images: ['./lib/nipah1.jpg', './lib/nipah2.jpg', './lib/nipah3.jpg'],
+  detailPageUrl: 'nipah.php',
+  city: 'Pangkor Island'
+},
+{
+  lat: 4.2093930396074954, 
+  lng: 100.5579636517314,
+  name: 'Pasir Bogak Beach',
+  placeID: "20",
+  description: 'Built in 1926 for Sultan Iskandar Shah, now Perak Royal Museum, served as official residence (1931-1933) and later used for royal receptions.',
+  images: ['./lib/bogak1.jpg', './lib/bogak2.jpg', './lib/bogak3.jpg'],
+  detailPageUrl: 'bogak.php',
+  city: 'Pangkor Island'
+},
+
 ];
 var map;
 var mapOptions;
@@ -123,8 +223,8 @@ function initMap() {
 
       // Map options
       mapOptions = {
-        center: userLatLng, // Center the map on the user's location
-        zoom: 12, // Set the zoom level
+        center: userLatLng, 
+        zoom: 12,
         styles: [
           {
             featureType: "poi",
@@ -203,12 +303,12 @@ function addCardToBottomBar(container, markerData) {
   }
 }
 
-// Keep track of the currently open info window
 var currentInfoWindow = null;
 
 function openInfoWindowAndCenterMap(markerData) {
-
-  var infoWindow = new google.maps.InfoWindow();
+  if (currentInfoWindow) {
+    currentInfoWindow.close();
+  }
 
   var contentDiv = document.createElement('div');
   contentDiv.className = 'infoBox';
@@ -219,9 +319,15 @@ function openInfoWindowAndCenterMap(markerData) {
   var imageElement = document.createElement('img');
   imageElement.src = markerData.images[0];
   imageElement.alt = markerData.name;
+  imgBxDiv.appendChild(imageElement);
 
   var contentContentDiv = document.createElement('div');
   contentContentDiv.className = 'content';
+  contentContentDiv.innerHTML = `
+    <h2>${markerData.name}</h2>
+    <p>${markerData.description}</p>
+    <a href="${markerData.detailPageUrl}?placeID=${markerData.placeID}" class="read-more-button">Read More</a>
+  `;
 
   var leftArrow = document.createElement('button');
   leftArrow.className = 'arrow left-arrow';
@@ -233,46 +339,32 @@ function openInfoWindowAndCenterMap(markerData) {
 
   var currentIndex = 0;
 
-  function updateInfoWindowContent() {
-    imgBxDiv.innerHTML = ''; // Clear existing content
-    imgBxDiv.appendChild(imageElement);
+  leftArrow.addEventListener('click', function () {
+    currentIndex = (currentIndex - 1 + markerData.images.length) % markerData.images.length;
+    imageElement.src = markerData.images[currentIndex];
+  });
 
-    contentContentDiv.innerHTML = ''; // Clear existing content
-    contentContentDiv.innerHTML = `
-    <h2>${markerData.name}</h2>
-    <p>${markerData.description}</p>
-    <a href="${markerData.detailPageUrl}?placeID=${markerData.placeID}" class="read-more-button">Read More</a>
-    `;
+  rightArrow.addEventListener('click', function () {
+    currentIndex = (currentIndex + 1) % markerData.images.length;
+    imageElement.src = markerData.images[currentIndex];
+  });
 
-    leftArrow.addEventListener('click', function () {
-      currentIndex = (currentIndex - 1 + markerData.images.length) % markerData.images.length;
-      imageElement.src = markerData.images[currentIndex];
-    });
+  contentDiv.appendChild(imgBxDiv);
+  contentDiv.appendChild(leftArrow);
+  contentDiv.appendChild(rightArrow);
+  contentDiv.appendChild(contentContentDiv);
 
-    rightArrow.addEventListener('click', function () {
-      currentIndex = (currentIndex + 1) % markerData.images.length;
-      imageElement.src = markerData.images[currentIndex];
-    });
+  currentInfoWindow = new google.maps.InfoWindow({
+    content: contentDiv
+  });
 
-    contentDiv.appendChild(imgBxDiv);
-    contentDiv.appendChild(leftArrow);
-    contentDiv.appendChild(rightArrow);
-    contentDiv.appendChild(contentContentDiv);
-
-    infoWindow.setContent(contentDiv);
-  }
-
-  updateInfoWindowContent();
-  infoWindow.open(map, markerData.marker);
+  currentInfoWindow.open(map, markerData.marker);
 
   var markerPosition = markerData.marker.getPosition();
-
   var targetZoom = 12;
 
   map.panTo(markerPosition);
   map.setZoom(targetZoom);
-
-  currentInfoWindow = infoWindow;
 }
 
 
@@ -366,26 +458,24 @@ function handleUINearbyButtonClick() {
   customThresholdInput.style.display = 'none';
 
   var showAllButton = document.getElementById('show-all-button');
-  showAllButton.style.display = 'inline-block'; // Use "inline-block" to make it visible
+  showAllButton.style.display = 'inline-block'; 
 
   showAllButton.addEventListener('click', function () {
-    customThresholdInput.style.display = 'inline-block'; // Use "inline-block" to make it visible
+    customThresholdInput.style.display = 'inline-block'; 
 
-    nearbyButton.style.display = 'inline-block'; // Use "inline-block" to make it visible
+    nearbyButton.style.display = 'inline-block'; 
 
     showAllButton.style.display = 'none';
   });
 }
 
-/// Add a click event listener to the "Nearby" button
 document.getElementById('nearby-button').addEventListener('click', showNearbyMarkers);
 
-// Add a click event listener to the "Show All" button
 document.getElementById('show-all-button').addEventListener('click', function () {
-  // Handle UI changes in the handleUINearbyButtonClick function
+
   handleUINearbyButtonClick();
 
-  // Call the function to show all markers
+
   showAllPlaces();
 });
 
@@ -476,7 +566,6 @@ function searchAndOpenMarker(userInput) {
   }
 }
 
-// Add a click event listener to the "Search" button
 var searchButton = document.getElementById('search-button');
 
 searchButton.addEventListener('click', function () {

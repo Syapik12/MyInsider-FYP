@@ -26,10 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['Username'] = $row['Username']; // Store username in the session
         $_SESSION['image_name'] = $row['image_name'];
         $_SESSION['image_data'] = $row['image_data'];
+        $_SESSION['loggedin'] = true;
         header("Location: index.php"); // Redirect to welcome page
     } else {
         $error = "Invalid username or password";
-        header("Location: signin.html"); // Redirect to welcome page
+        header("Location: errorsignin.html"); // Redirect to welcome page
     }
 }
 ?>

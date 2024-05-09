@@ -107,8 +107,8 @@ include('dbconn.php');
             <a href="#">Explore Now!</a>
         </div>
         <div class="media-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/muhammad.syafiq.1000469/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/syapik_21/"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
         <div class="slider-navigation">

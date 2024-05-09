@@ -37,6 +37,140 @@ $placeID = $_GET['placeID'];
           margin-bottom: 16px;
         }
 
+        /* Style for the place cards */
+        .place-card {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 250px;
+        height: 200px;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+        transition: 0.5s;
+        pointer-events: all;
+        }
+
+        .place-card:hover {
+        height: 200px;
+        }
+
+        .place-card .imgBx{
+            position: absolute;
+            top: 20px;
+            width: 200px;
+            height: 120px;
+            background: #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .place-card:hover .imgBx{
+            top: -50px;
+            scale: 0.75;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+        }
+
+        .place-card .imgBx img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .place-card .content{
+            position: absolute;
+            top: 152px;
+            width: 100%;
+            padding: 0 30px;
+            height: 25px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.5s;
+        }
+
+        .place-card:hover .content{
+            top: 90px;
+            height: 100px;
+        }
+
+        .place-card .content h2{
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .place-card .content p{
+            color: #333;
+        }
+
+        .place-card .content a{
+            position: relative;
+            top: 15px;
+            display: inline-block;
+            padding: 12px 25px;
+            background: #d5bdaf;
+            color: #fff;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .card-container h1{
+            margin-bottom: 20px;
+        }
+
+        .imgBx{
+            position: relative;
+            width: 300px;
+            height: 220px;
+            background: #333;
+            border-radius: 12px;
+            transition: 0.5s;
+        }
+
+        .imgBx img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content{
+            top: 252px;
+            width: 300px;
+            text-align: center;
+            transition: 0.5s;
+        }
+
+        .content h2{
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .content p{
+            color: #333;
+        }
+
+        .content a{
+            position: relative;
+            display: inline-block;
+            padding: 12px 25px;
+            background: #d5bdaf;
+            color: #fff;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .infoBox {
+            text-align: center;
+        }
+
+
         /* Style for star rating container */
         .star-rating {
             display: flex;
@@ -89,6 +223,17 @@ $placeID = $_GET['placeID'];
             height: 100%;
             object-fit: cover; /* Ensure the video covers the entire container */
         }
+
+        .wrapper {
+
+            text-align: center;
+            }
+
+            .wrapper a{
+
+              text-decoration: none;
+              color: #000;
+            }
 
     </style>
     <body>
@@ -306,23 +451,32 @@ $placeID = $_GET['placeID'];
                 }
                 
                 ?>
-                  <div class="comment-box">
-                    <form action="submit_comment.php" method="post">
-                        <div class="user">
-                            <div class="image"><img src="data:image/jpeg;base64,<?php echo base64_encode($_SESSION['image_data']); ?>" alt="<?php echo $_SESSION['image_name']; ?>"></div>
-                            <div class="name"><?php echo strtoupper($_SESSION['Username']); ?></div>
+                  <div class="wrapper">
+                    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
+                        <!-- Display the comment box if the user is logged in -->
+                        <div class="comment-box">
+                            <form action="submit_comment.php" method="post">
+                                <div class="user">
+                                    <div class="image"><img src="data:image/jpeg;base64,<?php echo base64_encode($_SESSION['image_data']); ?>" alt="<?php echo $_SESSION['image_name']; ?>"></div>
+                                    <div class="name"><?php echo strtoupper($_SESSION['Username']); ?></div>
+                                </div>
+                                <div class="star-rating">
+                                    <input type="radio" name="rating" value="1" id="rating1"><label for="rating1"><i class="fas fa-star"></i></label>
+                                    <input type="radio" name="rating" value="2" id="rating2"><label for="rating2"><i class="fas fa-star"></i></label>
+                                    <input type="radio" name="rating" value="3" id="rating3"><label for="rating3"><i class="fas fa-star"></i></label>
+                                    <input type="radio" name="rating" value="4" id="rating4"><label for="rating4"><i class="fas fa-star"></i></label>
+                                    <input type="radio" name="rating" value="5" id="rating5"><label for="rating5"><i class="fas fa-star"></i></label>
+                                </div>
+                                <textarea name="comment" required></textarea>
+                                <input type="hidden" name="placeID" value="<?php echo htmlspecialchars($placeID); ?>">
+                                <button type="submit" class="comment-submit">Comment</button>
+                            </form>
                         </div>
-                        <div class="star-rating">
-                            <input type="radio" name="rating" value="1" id="rating1"><label for="rating1"><i class="fas fa-star"></i></label>
-                            <input type="radio" name="rating" value="2" id="rating2"><label for="rating2"><i class="fas fa-star"></i></label>
-                            <input type="radio" name="rating" value="3" id="rating3"><label for="rating3"><i class="fas fa-star"></i></label>
-                            <input type="radio" name="rating" value="4" id="rating4"><label for="rating4"><i class="fas fa-star"></i></label>
-                            <input type="radio" name="rating" value="5" id="rating5"><label for="rating5"><i class="fas fa-star"></i></label>
-                        </div>
-                        <textarea name="comment" required></textarea>
-                        <input type="hidden" name="placeID" value="<?php echo htmlspecialchars($placeID); ?>">
-                        <button type="submit" class="comment-submit">Comment</button>
-                    </form>
+                    <?php else : ?>
+                        <!-- Display a message asking the user to sign in if they're not logged in -->
+                        <p style="text-align: center;">Please sign in first to leave a comment</p>
+                        <a href="signin.html" class="btn">Sign In</a>
+                    <?php endif; ?>
                 </div>
                 </div>
               </div>
